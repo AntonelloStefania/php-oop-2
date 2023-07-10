@@ -15,4 +15,17 @@ img {
 
 body {
     background-color: rgb(224, 221, 221);
+    padding-bottom: 2rem;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+}
+
+h1 {
+    font-size: 70px;
 }
