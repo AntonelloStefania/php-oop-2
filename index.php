@@ -44,35 +44,41 @@ $products=[
     <title>php-oop-2</title>
 </head>
 <body>
-    <div class="container">
-        <div class="row justify-content-center flex-wrap">
-            <?php foreach($products as $product) {?>
-                <div class="col-lg-3 col-md-6 col-12 m-2 card">
-                <div class="d-flex  justify-content-center">
-                    <img src="<?php echo $product->image?>" alt="">
+    <header>
+        <h1 class="ms-5 mt-3 mb-5 fw-bolder">Boolshop</h1>
+    </header>
+    <div class="container d-flex justify-content-center w-100">
+        <div class="row justify-content-center">
+            <h3 class="fw-bold text-center my-5">I nostri prodotti</h3>
+                <div class="d-flex flex-wrap justify-content-center">
+                    <?php foreach($products as $product) {?>
+                        <div class="col-lg-3 col-md-5 col-12 m-2 card p-2 card-style">
+                        <div class="d-flex  justify-content-center">
+                            <img src="<?php echo $product->image?>" alt="">
+                        </div>
+                        <h2><?php echo $product->name?></h2>
+                        <span class="my-2">
+                           <strong><?php echo $product->target?></strong> 
+                        </span>
+                        <span class="my-2"><strong>Prezzo:</strong> <?php echo $product->price?></span>
+                        <?php if(property_exists($product,'weight')){?>
+                            <span class="my-2"><strong>Peso netto:</strong> <?php echo $product->weight?></span>
+                        <?php }?>
+                        <?php if(property_exists($product,'ingredients')){?>
+                            <span class="my-2"><strong>Ingredienti:</strong> <?php echo $product->ingredients?></span>
+                        <?php }?>
+                        <?php if(property_exists($product, 'materials')) {?>
+                            <span class="my-2"><strong>Materiale:</strong> <?php echo $product->materials?></span>
+                        <?php }?>
+                        <?php if(property_exists($product,'toKnow')){?>
+                            <span class="my-2"><strong>Caratteristiche:</strong> <?php echo $product->toKnow?></span>
+                        <?php }?>
+                        <?php if(property_exists($product,'dimension')){?>
+                            <span class="my-2"><strong>Dimensioni: </strong><?php echo $product->dimension?></span>
+                        <?php }?>
+                    </div>
+                    <?php }?>
                 </div>
-                <h2><?php echo $product->name?></h2>
-                <span class="my-2">
-                    <?php echo $product->target?>
-                </span>
-                <span class="my-2"><strong>Prezzo:</strong> <?php echo $product->price?></span>
-                <?php if(property_exists($product,'weight')){?>
-                    <span class="my-2"><strong>Peso netto:</strong> <?php echo $product->weight?></span>
-                <?php }?>
-                <?php if(property_exists($product,'ingredients')){?>
-                    <span class="my-2"><strong>Ingredienti:</strong> <?php echo $product->ingredients?></span>
-                <?php }?>
-                <?php if(property_exists($product, 'materials')) {?>
-                    <span class="my-2"><strong>Materiale:</strong> <?php echo $product->materials?></span>
-                <?php }?>
-                <?php if(property_exists($product,'toKnow')){?>
-                    <span class="my-2"><strong>Caratteristiche:</strong> <?php echo $product->toKnow?></span>
-                <?php }?>
-                <?php if(property_exists($product,'dimension')){?>
-                    <span class="my-2"><strong>Dimensioni: </strong><?php echo $product->dimension?></span>
-                <?php }?>
-            </div>
-            <?php }?>
         </div>
     </div>
 </body>
